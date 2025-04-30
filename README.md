@@ -1,4 +1,4 @@
 # webCVPablo
 Mi CV web.
 
-Publicado en: https://cens364.netlify.app/
+Publicado en: https://gpabloandres.github.io/miCVWeb/
