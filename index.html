@@ -28,6 +28,19 @@
       background: white;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
+    .download-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 20px 0;
+      background-color: #fff;
+      color: #234f79;
+      border: 1px solid #234f79;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: center;
+    }
     .sidebar {
       background: linear-gradient(180deg, #234f79, #234f79);
       color: white;
@@ -87,6 +100,7 @@
         <p>gpabloandres@gmail.com</p>
         <p>2901-1540001</p>
         <p><a href="https://linkitr.ee/gpabloandres" target="_blank">linkitr.ee/gpabloandres</a></p>
+        <button id="download-pdf" class="download-btn">Descargar como PDF</button>
       </div>
       <br>
       <h3>Habilidades Técnicas</h3>
@@ -181,5 +195,22 @@
       </ul>
     </div>
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    document.getElementById('download-pdf').addEventListener('click', function () {
+      const element = document.querySelector('.container');
+      const opt = {
+        margin:       0,
+        filename:     'CV_Pablo_Andres_Gay.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+      // Evita que la sombra de la caja se vea cortada en el PDF
+      element.style.boxShadow = 'none';
+      html2pdf().from(element).set(opt).save().then(() => element.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)');
+    });
+  </script>
 </body>
 </html>
