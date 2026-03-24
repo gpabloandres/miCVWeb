@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Pablo Andrés Gay - Perfil Tecnológico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #234f79;
+      --secondary: #4a90e2;
+      --text: #333;
+      --light-bg: #f8fafc;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Controles de Interfaz */
+    .controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.2s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover { background: var(--secondary); transform: translateY(-1px); }
+
+    /* Layout Principal */
+    .cv-page {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 60px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 25px;
+      margin-bottom: 30px;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: var(--primary);
+      letter-spacing: -1px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px 20px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .contact-grid a { color: var(--text); text-decoration: none; }
+    .contact-grid a:hover { color: var(--secondary); }
+
+    .profile-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+    }
+
+    /* Secciones */
+    section { margin-bottom: 35px; }
+
+    h2.section-title {
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 15px;
+      background: #f1f5f9;
+      padding: 8px 15px;
+      border-left: 5px solid var(--primary);
+      display: flex;
+      align-items: center;
+    }
+
+    /* Experiencia y Educación */
+    .item { margin-bottom: 25px; }
+    
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      color: #1a365d;
+    }
+
+    .item-sub {
+      display: flex;
+      justify-content: space-between;
+      color: var(--secondary);
+      font-style: italic;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    ul { padding-left: 1.2rem; margin: 8px 0; }
+    li { margin-bottom: 4px; }
+
+    /* Skills */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .skill-category strong { color: var(--primary); }
+
+    /* Ajustes de Impresión (CRÍTICO PARA ATS) */
+    @media print {
+      body { background: white; }
+      .cv-page { 
+        margin: 0; 
+        padding: 0; 
+        box-shadow: none; 
+        max-width: 100%;
+      }
+      .controls { display: none; }
+      header { border-bottom-color: #000; }
+      h2.section-title { background: #eee !important; border-left-color: #000 !important; }
+      a { text-decoration: none; color: black; }
+    }
+
+    @media (max-width: 768px) {
+      .cv-page { padding: 30px; margin: 0; }
+      header { flex-direction: column-reverse; text-align: center; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .item-header, .item-sub { flex-direction: column; }
+      .skills-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <button onclick="window.print()" class="btn">
+      <span>🖨️</span> Descargar PDF (ATS-Ready)
+    </button>
+  </div>
+
+  <div class="cv-page">
+    <header>
+      <div class="header-text">
+        <h1>Pablo Andrés Gay</h1>
+        <div class="contact-grid">
+          <span>📍 Tierra del Fuego, Argentina</span>
+          <span>📧 <a href="mailto:gpabloandres@gmail.com">gpabloandres@gmail.com</a></span>
+          <span>📞 2901-1540001</span>
+          <span>🔗 <a href="https://linktr.ee/gpabloandres" target="_blank">linktr.ee/gpabloandres</a></span>
+        </div>
+      </div>
+      <img src="perfilPablo.jpg" alt="Pablo Andrés Gay" class="profile-img">
+    </header>
+
+    <section id="summary">
+      <h2 class="section-title">Perfil Profesional</h2>
+      <p>
+        Experto en Sistemas con más de 17 años de trayectoria en desarrollo de software, gestión de proyectos tecnológicos y educación técnica. 
+        Líder en innovación tecnológica con enfoque estratégico en <strong>Inteligencia Artificial</strong>, <strong>IoT</strong> y <strong>Automatización Industrial</strong>. 
+        Capacidad probada para transformar necesidades educativas y empresariales en soluciones digitales de alto impacto.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Habilidades Técnicas</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <strong>Programación:</strong> Python (IA/Data), PHP, C++, SQL, NoSQL.
+        </div>
+        <div class="skill-category">
+          <strong>Industria 4.0:</strong> IoT, IIoT, PLC, Visión Computarizada.
+        </div>
+        <div class="skill-category">
+          <strong>IA & Herramientas:</strong> LLMs, RAG, GitHub, Docker, Node-RED, Grafana.
+        </div>
+        <div class="skill-category">
+          <strong>Gestión:</strong> Project Management, Innovación Educativa, Liderazgo de Equipos.
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">Experiencia Laboral</h2>
+      
+      <div class="item">
+        <div class="item-header">
+          <span>Coordinador de Vinculación y Docente Técnico</span>
+          <span>2021 — Actualidad</span>
+        </div>
+        <div class="item-sub">
+          <span>Colegio Técnico Provincial Antonio Martin Marte</span>
+          <span>Ushuaia, Argentina</span>
+        </div>
+        <ul>
+          <li>Liderazgo del <strong>Proyecto MARTECH</strong>: Sistema IoT automatizado para cultivo de hongos (Mención Especial Nacional).</li>
+          <li>Desarrollo de currícula técnica integrando <strong>Arduino, Python y Visión Artificial</strong>.</li>
+          <li>Gestión de alianzas estratégicas entre la institución e industrias tecnológicas locales.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span>Project Manager / Coordinador de Desarrollo</span>
+          <span>2019 — 2021</span>
+        </div>
+        <div class="item-sub">
+          <span>Dirección Provincial de Educación, Ciencia y Tecnología</span>
+          <span>TDF, Argentina</span>
+        </div>
+        <ul>
+          <li>Lideré el despliegue del <strong>sistema SIEP</strong> en más de 200 instituciones, optimizando la gestión de datos de 5,000+ estudiantes.</li>
+          <li>Coordinación de la PWA "Nuestras Malvinas", declarada de <strong>Interés Nacional</strong>.</li>
+          <li>Automatización de procesos administrativos internos mediante herramientas web personalizadas.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span>Coordinador Provincial de Informática Educativa</span>
+          <span>2013 — 2015</span>
+        </div>
+        <div class="item-sub">
+          <span>Ministerio de Educación de Tierra del Fuego</span>
+          <span>TDF, Argentina</span>
+        </div>
+        <ul>
+          <li>arquitecto del sistema <strong>TRAES</strong> para gestión académica en escuelas secundarias.</li>
+          <li>Diseño y despliegue de la plataforma de e-learning <strong>CENS Ubicuo</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 class="section-title">Formación Académica</h2>
+      <div class="item">
+        <div class="item-header">
+          <span>Ingeniería en Sistemas (87% completado)</span>
+          <span>En curso</span>
+        </div>
+        <div class="item-sub">
+          <span>Instituto Universitario Aeronáutico</span>
+          <span>A distancia</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span>Técnico Mecánico Electricista</span>
+          <span>Graduado</span>
+        </div>
+        <div class="item-sub">
+          <span>EETN N°1 Punta Alta</span>
+          <span>Punta Alta, Argentina</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="extra">
+      <h2 class="section-title">Especializaciones Recientes</h2>
+      <ul>
+        <li><strong>IA & LLMs (2025):</strong> Desarrollo con RAG y Modelos de Visión (Microsoft Reactor).</li>
+        <li><strong>Industria 4.0 (2024):</strong> Automatización con PLC y Python Industrial (Inglearn).</li>
+        <li><strong>Data Science (2024):</strong> Ciencia de Datos Aplicada (DS4B, España).</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script>
+    // Pequeña función para asegurar el nombre del archivo al imprimir
+    window.onbeforeprint = function() {
+      document.title = "CV_Pablo_Andres_Gay_ATS";
+    };
+    window.onafterprint = function() {
+      document.title = "CV Pablo Andrés Gay - Perfil Tecnológico";
+    };
+  </script>
+</body>
+</html>
